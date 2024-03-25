@@ -12,8 +12,8 @@ form.addEventListener('submit',(e)=>{
     document.cookie = `size=${size}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
 
     // Update CSS variables
-    document.documentElement.style.setProperty('--font-color', color);
-    document.documentElement.style.setProperty('--font-size', size);
+    document.documentElement.style.setProperty('--fontcolor', color);
+    document.documentElement.style.setProperty('--fontsize', size);
 });
 
 // Function to get cookie value by name
