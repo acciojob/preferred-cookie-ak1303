@@ -13,21 +13,20 @@ form.addEventListener('submit',(e)=>{
 
     // Update CSS variables
     document.documentElement.style.setProperty('--fontcolor', color);
-    document.documentElement.style.setProperty('--fontsize', size);
+	document.documentElement.style.setProperty('--fontsize', `${size}px`);
 });
 
 // Function to get cookie value by name
 function getCookie(name) {
-    const cookies = document.cookie.split(';');
-    for(let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].trim();
-        if (cookie.startsWith(name + '=')) {
-            return cookie.substring(name.length + 1);
+    let cookieArr = document.cookie.split(";");
+    for(let i = 0; i < cookieArr.length; i++) {
+        let cookiePair = cookieArr[i].split("=");
+        if(name == cookiePair[0].trim()) {
+            return decodeURIComponent(cookiePair[1]);
         }
     }
     return null;
 }
-
 // Retrieve font color and size from cookies and update form inputs
 window.addEventListener('load', () => {
     const color = getCookie('color');
@@ -38,6 +37,6 @@ window.addEventListener('load', () => {
     }
     if (size) {
         fontSize.value = size;
-        document.documentElement.style.setProperty('--fontsize', size);
+		 document.documentElement.style.setProperty('--fontsize', `${size}px`);
     }
 });
