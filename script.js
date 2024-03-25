@@ -34,10 +34,10 @@ window.addEventListener('load', () => {
     const size = getCookie('size');
     if (color) {
         fontColor.value = color;
-        document.documentElement.style.setProperty('--font-color', color);
+        document.documentElement.style.setProperty('--fontcolor', color);
     }
     if (size) {
         fontSize.value = size;
-        document.documentElement.style.setProperty('--font-size', size);
+        document.documentElement.style.setProperty('--fontsize', size);
     }
 });
